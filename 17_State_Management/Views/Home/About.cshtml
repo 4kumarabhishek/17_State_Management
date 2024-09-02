@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "About";
+    TempData.Keep();
+}
+
+Welcome <b>@Session["username"]</b><br />
+Language is @TempData["language"];
+<br />
+Name is <b>@TempData["name"]</b>
+<br />
+Age is <b>@TempData["age"]</b><br />
+
+@*Cookies demo*@
+@ViewBag.msg

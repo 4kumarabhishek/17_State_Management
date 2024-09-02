@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    TempData.Keep();    /*Keeps all the values saved*/
+    //TemmpData.Keep("language") --> Keeps only specific value saved;
+}
+
+<h2>State management</h2>
+
+Subject is <b>@ViewData["subject"]</b>
+<br />
+<br />
+Version is <b>@ViewBag.version</b>
+<br />
+<br />
+
+
+@*We can do it vice-versa too*@
+
+Subject is <b>@ViewBag.subject</b>
+<br />
+<br />
+
+
+
+Version is <b>@ViewData["version"]</b>
+<br />
+<br />
+
+<h4>Color List</h4>
+<br />
+<ul>
+    @foreach (string color in ViewBag.colorList)
+    {
+        <li>@color</li>
+    }
+</ul>
+
+@*We can do it using ViewData also , but we will have to use IEnumerable typecasting*@
+
+<h4>Color List 2</h4>
+<br />
+<ul>
+    @foreach (string color in ViewData["colorList"] as IEnumerable<string>)
+    {
+        <li>@color</li>
+    }
+</ul>
+
+@*TempData example*@
+
+Language is @TempData["language"];
+<br />
+Name is <b>@TempData["name"]</b>
+<br />
+Age is <b>@TempData["age"]</b><br />
+Age2 is <b>@TempData.Peek("age")</b>  @*using peek*@
+<br />
+<a href="/home/about">About</a><br />
+
+Welcome <b>@Session["username"]</b>
